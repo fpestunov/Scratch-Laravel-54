@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/posts', 'PostsController@index');
+Route::post('/posts', 'PostsController@store');
+Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
 
 Route::get('/tasks', 'TaskController@index');
