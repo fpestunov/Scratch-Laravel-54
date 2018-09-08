@@ -11,16 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    $title = 'Welcome Laravel';
-    $tasks = [
-        'Go to the store',
-        'Finish my',
-        'Clean the house'
-    ];
-    return view('welcome', compact('title', 'tasks'));
-});
 
 Route::get('/about', function () {
     return view('about');
+});
+
+Route::get('/tasks', function () {
+    $title = 'Welcome Laravel';
+
+    $tasks = DB::table('tasks')->get();
+
+    // $tasks = [
+    //     'Go to the store',
+    //     'Finish my',
+    //     'Clean the house'
+    // ];
+    return view('tasks.index', compact('title', 'tasks'));
+});
+
+Route::get('/tasks/{task}', function ($id) {
+    
+    $task = DB::table('tasks')->find($id);
+    // dd($task);
+    return view('tasks.show', compact('task'));
+
 });
