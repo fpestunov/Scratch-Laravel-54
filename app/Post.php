@@ -8,4 +8,9 @@ class Post extends Model
 {
     // protect hackers input
     protected $fillable = ['title', 'body'];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
