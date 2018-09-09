@@ -1,5 +1,6 @@
 @extends ('layouts.master')
 
 @section ('content')
-      <h1>A place show post</h1>
+      <h1>{{ $post->title }}</h1>
+      {{ $post->body }}
 @endsection
