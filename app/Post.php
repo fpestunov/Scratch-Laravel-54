@@ -13,4 +13,21 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function addComment($body)
+    {
+        // Comment::create([
+        //     'body' => request('body'),
+        //     'post_id' => $this->id // not $post, its instance
+        // ]);
+
+        // Not good yet, its Eloquent and there is relation
+        // Refactor
+        // Lets make without $post->id
+        
+        // $this->comments()->create(['body' => $body])
+        // same
+        $this->comments()->create(compact('body'));
+
+    }
 }

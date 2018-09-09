@@ -17,4 +17,20 @@
           @endforeach
         </ul>
       </div>
+    
+    <hr>
+    <div class="card">
+        <div class="card-body">
+            <form action="/posts/{{ $post->id }}/comments" method="POST">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <textarea class="form-control" id="body" name="body" placeholder="Enter comment" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add comment</button>
+                </div>
+                @include('layouts.errors')
+            </form>
+        </div>
+    </div>
 @endsection
