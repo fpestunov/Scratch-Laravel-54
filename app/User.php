@@ -27,4 +27,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function publish(Post $post)
+    {
+        $this->posts()->save($post);
+        // save() потому что есть связь с моделью Post
+        // если бы связи не было, то использовали 
+        // create(['aa','ss'])
+    }
+    
+    public function setPasswordAttribute($password)
+    {   
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
