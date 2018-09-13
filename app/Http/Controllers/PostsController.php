@@ -31,11 +31,12 @@ class PostsController extends Controller
 
         // $posts = $posts->get();
 
-        $archives = Post::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at) desc')
-            ->get()
-            ->toArray();
+        // remove this block to model Post
+        // $archives = Post::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
+        //     ->groupBy('year', 'month')
+        //     ->orderByRaw('min(created_at) desc')
+        //     ->get()
+        //     ->toArray();
 
         //return dd($posts);
         return view('posts.index', compact('posts', 'archives'));

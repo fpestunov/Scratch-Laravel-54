@@ -13,7 +13,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // hook on loading 'layouts.sidebar' (see @include('layouts.sidebar') )
+        view()->composer('layouts.sidebar', function($view) {
+            $view->with('archives', \App\Post::archives());
+            // вызов как в контролере
+            // return view('posts.index')->with('posts', $posts)
+        });
     }
 
     /**
