@@ -18,6 +18,9 @@ class PostsController extends Controller
     {
         //dd($posts);
 
+        // Flash message.
+        return session('message');
+
         $posts = $posts->all();
         //$posts = (new \App\Repositories\Posts)->all();
 
