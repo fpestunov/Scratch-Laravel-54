@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Repositories\Posts;
+use App\Tag;
 use Illuminate\Http\Request;
 // use Carbon\Carbon;
 
@@ -16,10 +17,11 @@ class PostsController extends Controller
 
     public function index(Posts $posts)
     {
+        // return $tag->posts;
         //dd($posts);
 
         // Flash message.
-        return session('message');
+        //return session('message');
 
         $posts = $posts->all();
         //$posts = (new \App\Repositories\Posts)->all();

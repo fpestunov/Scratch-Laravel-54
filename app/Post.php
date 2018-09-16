@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Tag;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
@@ -56,4 +57,9 @@ class Post extends Model
             ->get()
             ->toArray();
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }    
 }
